@@ -10,4 +10,4 @@
 
 交作業的流程基本在這裡告一段落。
 
-Extra．**`git pull origin main`**：當作業改完後，將變動同步到本地。
+Extra．**`git pull origin master`**：當作業改完後，將變動同步到本地。
