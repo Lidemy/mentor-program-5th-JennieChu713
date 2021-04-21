@@ -70,7 +70,7 @@ GitHub其實就是一個可以放置 repository、Git-based 的視覺化平台�
 
 1. 登入完進入頁面後，請點選**右上方「+」的圖案**（在你的帳號頭像隔壁），然後按**「new repository」**來新增一個 repository。把最必要的 repository 名稱填完送出，就會直接來到新增的 repository 的頁面了！
 2. 在 repository 的頁面中，有幾個貼心提示說明要怎麼把你的作品「推」到 GitHub 上。請參考<u>最下面的針對已經新增 repository 的說明區塊</u>。只要依照當中的順序，把指令一一執行在你電腦的CLI中（記得要先`cd`到你想要推的作品資料夾中），就可以把作品推到 GitHub 上了！ 這裡我們就來簡單說明每一行指令代表的意義：
-  3. **`git remote origin 你的repository網址`**：先指定遠端是哪個 repository（即那條網址），並以 origin 作為 repository 的代稱。
+  3. **`git remote add origin 你的repository網址`**：先指定遠端是哪個 repository（即那條網址），並以 origin 作為 repository 的代稱。
   4. **`git branch -M main`**：將本地的初始分支從 master 重新命名為 main。雖然過往都是預設為 master，不過近期被判斷是帶有歧視性的字詞，因此在 [2020 年 10 月](https://www.ithome.com.tw/news/140094)之後一率改成 main 。其實就單純只是換了名字而已，本質沒有改變。
   5. **`git push -u origin main`**：**在你完成 commit 之後**，最後將本地的分支 main 推到 GitHub 的指定 repository 上。 `-u`就是設定要把東西推到哪裡的意思。這一部分以後是可以省略不寫。
   6. **`git pull origin main`**：這是當你在 GitHub 上進行更動之後，你可以從藉著 CLI 把上面更新的部分「拉」到自己的電腦中，也就把你自己電腦裡的作品也做了一樣的更新。用比較術語的方式來說，就是把 GitHub 的改變用<u>人工的方式</u>**同步**到你的電腦中。反過來說，你也可以把你電腦中所做的更動同步到 GitHub 上，也就是執行 `push`指令的部分。
@@ -94,7 +94,7 @@ GitHub其實就是一個可以放置 repository、Git-based 的視覺化平台�
 |     -      |        `git checkout 分支名稱`         |         `版本ID`、`-- 檔案名稱`         | 切換到所選的分支。如果換成版本 ID，則可以回到該版本建立時的狀態查看。若使用`-- 檔案名稱`，則會恢復該檔案上一次儲存前的狀態。**僅限尚未 commit 之前**。 |
 |     -      |          `git merge 分支名稱`          |                                         |        將分支合併於初始分支，也就是 master 或 main 。        |
 |     -      |           `git reset HEAD^`            | `版本ID`；`--soft`、`--hard`、`--mixed` | 重置到某個版本時的狀態。`HEAD^`表示是回到當前所在（HEAD）的前一個版本建立的時間點，這邊也可以換成版本的 ID。`--soft`、`--hard`、`--mixed`則是針對該版本中檔案與資料夾的恢復狀態。`--soft`僅移除 commit 而當前內容及新增資料不變，`--hard`是完全移除 commit 以及當前內容；最後`--mixed`則是移除 commit 、保留已經更動的內容，但未加入新增的資料，亦是未指定時的預設值。 |
-|   GitHub   | `git remote origin 你的repository網址` |                                         |     設定遠端要同步的 repository，並設置 origin 為代號。      |
+|   GitHub   | `git remote add origin 你的repository網址` |                                         |     設定遠端要同步的 repository，並設置 origin 為代號。      |
 |   GitHub   |          `git branch -M main`          |                                         |              重新命名本地端的初始分支為 main。               |
 |   GitHub   |   `git push -u origin 本地分支名稱`    |                                         | 將本地端的分支同步推到 GitHub 以 origin 為代表的 repository 上。 `-u`為指定推到哪個地方，以後可以省略不寫。 |
 |   GitHub   |         `git pull origin main`         |                                         |        把遠端 GitHub 的資料同步拉到本地端初始分支上。        |
