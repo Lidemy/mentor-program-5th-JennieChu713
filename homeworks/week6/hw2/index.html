@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css" />
+    <!-- <link rel="stylesheet" href="./form.css"> -->
+    <!-- 後來考量到 CSS 是不是放在同一個檔案讓助教看會不會比較方便，所以還是將 CSS 內容放到 header中。 -->
+    <title>6oo6le form 新拖延運動報名表單</title>
+    <!-- customize CSS -->
+    <style>
+      /* general parts */
+      html, body {
+        height: 100%;
+      }
+      .card {
+        width: 60%;
+        margin: 120px auto;
+        box-shadow: 1.8px 2.4px 5px 0 rgba(0,0,0, 0.3);
+        border-top: 6px solid #fad312;
+        background-color: white;
+
+      }
+      .wrapper {
+        margin: 0 5%;
+        flex-grow: 1;
+      }
+      /* form title (header) */
+      .title__description h1 {
+        font-size: 36px;
+      }
+      .title__description > p:not(:last-child) {
+        font-size: 14px;
+        margin: 0;
+        margin-top: 10px;
+      }
+      .title__description p:last-child {
+        color: #e74149;
+      }
+      .title__description p:last-child::before {
+        content: '* ';
+        color: #e74149;
+      }
+      /* form section */
+      .form .form__filling-area div > label {
+        font-size: 20px;
+        display: block;
+        margin: 30px 0 15px 0;
+      }
+      .form .form__filling-area div:not(.form__other) label::after {
+        content: ' *';
+        color: #e74149;
+      }
+      .form .form__filling-area div input[type="text"], input[type="email"] {
+        border: 1px solid #CCC;
+        margin-bottom: 20px;
+        width: 70%;
+      }
+      .form__type-choice {
+        margin-bottom: 40px;
+      }
+      .form__type-choice p {
+        position: relative;
+      }
+      .form__type-choice input {
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+        width: 70%;
+      }
+      .form__type-choice p {
+        margin-left: 20px;
+      }
+      .radio-btn {
+        position: absolute;
+        top: 0;
+        left: -20px;
+        height: 12px;
+        width: 12px;
+        background-color: #d0d0d0;
+        border-radius: 50%;
+      }
+      .form__type-choice p:hover .radio-btn {
+        background-color: #9b9b9b;
+      }
+      .form__type-choice input:checked ~ .radio-btn {
+        background-color: #a75858;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        border: 2px solid #d0d0d0;
+      }
+      .radio-btn:after {
+        content: "";
+        position: absolute;
+        display: none;
+      }
+      .form__type-choice input:checked ~ .radio-btn:after {
+        display: block;
+      }
+      #label-other {
+        margin-bottom: 0;
+      }
+      #label-other + p {
+        margin: 12px 0 30px 0;
+      }
+      #button {
+        padding: 13px 32px;
+        background-color: #fad312;
+        border-radius: 3px;
+        margin: 50px 0 20px 0;
+        border: none;
+        transition-duration: 0.5s;
+        transition-property: background-color, color;
+      }
+      #button:hover {
+        background-color: #59b9c6;
+        color: white;
+      }
+      .warning__slogan {
+        font-size: 14px;
+        padding-bottom: 35px;
+      }
+      /* footer */
+      .copyright {
+        width: 100%;
+        background-color: black;
+        text-align: center;
+      }
+      .copyright p {
+        color: #999;
+        font-size: 14px;
+        padding: 30px 0;
+      }
+      /* media device */
+      @media(min-width: 1300px) {
+        .card {
+          width: 45%;
+        }
+        .form .form__filling-area div input[type="text"], input[type="email"] {
+          margin-bottom: 20px;
+          width: 60%;
+        }
+      }
+      @media(max-width: 768px) {
+        .card {
+          width: 100%;
+          margin: 0;
+          box-shadow: none;
+        }
+        .form__type-choice input {
+          height: 30px;
+        }
+        .form__type-choice > p {
+          margin-bottom: 45px;
+        }
+        .form .form__filling-area div input[type="text"], input[type="email"] {
+          height: 40px;
+          width: 85%;
+        }
+        #button {
+          
+          padding: 20px 40px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <div class="wrapper">
+        <header class="title__description">
+            <h1>新拖延運動報名表單</h1>
+            <p>活動日期：2020/12/10 ~ 2020/12/11</p>
+            <p>活動地點：台北市大安區新生南路二段1號</p>
+            <p>必填</p>
+        </header>
+        <section class="form">
+          <form class="form__filling-area">
+            <div class="form__name">
+              <label for="name">
+                暱稱
+              </label>
+              <input name="name" type="text" placeholder="您的回答" required />
+            </div>
+            <div class="form__email">
+              <label for="email">
+                電子郵件
+              </label>
+              <input name="email" type="email" placeholder="您的電子郵件" required />
+            </div>
+            <div class="form__phone">
+              <label for="phone">
+                手機號碼
+              </label>
+              <input name="phone" type="text" placeholder="您的手機號碼" required />
+            </div>
+            <div class="form__type-choice">
+              <label for="type">
+                報名類型
+              </label>
+              <p><input type="radio" name="type" value="dream-come-true" required /><span class="radio-btn"></span>躺在床上用想像力實作</p>
+              <p><input type="radio" name="type" value="ready-made" required /><span class="radio-btn"></span>趴在地上滑手機找現成的</p>
+            </div>
+            <div class="form__notice">
+              <label for="notice">
+                怎麼知道這個活動的？
+              </label>
+              <input name="notice" type="text" placeholder="您的回答" required />
+            </div>
+            <div class="form__other">
+              <label id="label-other" for="other">
+                其他
+              </label>
+              <p>對活動的一些建議</p>
+              <input name="other" type="text" placeholder="您的回答"/>
+            </div>
+            <div class="form__submit">
+              <input id="button" type="submit" />
+            </div>
+          </form>
+        </section>
+        <p class="warning__slogan">請勿透過表單送出您的密碼。</p>
+      </div>
+    </div>
+    <footer class="copyright">
+      <p>© 2020 © Copyright. All rights Reserved.</p>
+    </footer>
+  </body>
+</html>
