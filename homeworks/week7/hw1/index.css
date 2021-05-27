@@ -1,0 +1,181 @@
+/* debug dev */
+/* .debug *, .debug {
+  border: 1px solid rgba(175, 238, 238, 0.2);
+} */
+/* DESKTOP BASED */
+  /* general parts */
+body {
+  background-color: #f0f0f0;
+}
+main {
+  display: flex;
+  flex-direction: column;
+  background-color: white;;
+}
+.wrapper {
+  width: 70%;
+  margin: 10% auto;
+  flex-grow: 1;
+}
+.register__form {
+  border-top: 6px solid #fad312;
+  box-shadow: 1.8px 2.4px 5px 0 rgba(0, 0, 0, 0.3);
+}
+.register__form > .wrapper {
+  width: 90%;
+  margin: 10% auto;
+}
+
+  /* form : header title */
+.form__title h1 {
+  font-size: 36px;
+  margin: 5% 0;
+}
+.title-desc {
+  margin: 7% 0;
+}
+.title-desc p {
+  margin: 10px 0;
+}
+.title-desc p:not(:last-child) {
+  font-size: 16px;
+}
+.title-desc p:last-child {
+  font-size: 18px;
+  color: #e74149;
+  margin: 20px 0;
+}
+.title-desc p:last-child::before {
+  content: '* ';
+  color: #e74149;
+}
+
+  /* form: filling area */
+.form__filling > div {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  margin: 50px 0;
+}
+.form__filling label:not(label[for="imagination"] ,label[for="ready-made"]), .filling-type > p:first-of-type {
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+.form__filling label:not([for="imagination"] ,label[for="ready-made"], label[for="others"])::after, .filling-type > p:first-of-type:after {
+  content: ' *';
+  color: #e74149;
+}
+.filling-type label {
+  margin-bottom: 25px;
+  font-size: 16px;
+}
+    /* customize radio button —— 參考 https://codepen.io/manabox/pen/raQmpL */
+.filling-type > input:checked, .filling-type > input:not(:checked) {
+  position: absolute;
+  left: -9999px;
+  opacity: 0;
+}
+.filling-type > input:checked + label, .filling-type > input:not(:checked) + label {
+  position: relative;
+  padding-left: 25px;
+  cursor: pointer;
+}
+.filling-type > input:checked + label::before, .filling-type > input:not(:checked) + label::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 18px;
+  height: 18px;
+  border: 1px solid #ddd;
+  border-radius: 100%;
+  background-color: #fff;
+}
+.filling-type > input:checked + label::after, .filling-type > input:not(:checked) + label::after {
+  content: '';
+  width: 12px;
+  height: 12px;
+  background-color: #a04646;
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  border-radius: 100%;
+  transition: all 0.2s ease;
+}
+.filling-type > input:not(:checked) + label::after {
+  opacity: 0;
+  transform: scale(0);
+}
+.filling-type > input:checked + label::after {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.filling-others > p {
+  font-size: 16px;
+  margin-bottom: 25px;
+}
+.submit-btn input {
+  width: 90px;
+  background-color: #fad312;
+  padding: 13px 30px;
+  border-radius: 3px;
+  border: none;
+  margin: 30px 0;
+  font-size: 15px;
+}
+.submit-btn p {
+  font-size: 14px;
+}
+
+  /* footer */
+.copyright__info {
+  width: 100%;
+  height: 60px;
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.copyright__info p {
+  font-size: 13px;
+  color: #999;
+}
+
+/* media : wide-screen, mobile */
+  /* wide-screen */
+@media(min-width: 1300px) {
+  .wrapper {
+    width: 50%;
+  }
+  .register__form > .wrapper {
+    width: 80%;
+  }
+}
+
+  /* mobile */
+@media(max-width: 768px) {
+  .wrapper {
+    width: 100%;
+    margin: 0;
+  }
+  .register__form {
+    box-shadow: none;
+  }
+  .form__filling > div {
+    width: 80%;
+  }
+  .form__filling input:not([type="radio"], [type="submit"]) {
+    height: 30px;
+  }
+  .filling-type p + input + label {
+    margin-bottom: 60px;
+  }
+}
+
+/* class for js DOM */
+.warning {
+  color: #e74149;
+  padding-top: 15px;
+  font-weight: bold;
+}
