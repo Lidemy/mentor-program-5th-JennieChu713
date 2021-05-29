@@ -1,0 +1,167 @@
+/* debug dev */
+/* .debug *, .debug {
+  border: 1px solid rgba(255, 99, 71, 0.1);
+}  */
+/* DESKTOP BASE */
+/* general parts */
+html, body {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  color: #665d45;
+}
+body {
+  background: #f4dda5 linear-gradient(45deg, rgba(63, 135, 166, 0.4), rgba(235, 248, 225, 0.1) 40%, rgba(246, 157, 60, 0.3));
+}
+.wrapper {
+  position: relative;
+  width: 80%;
+  margin: 3% auto 5%;
+  text-align: center;
+  flex-grow: 1;
+}
+
+/* title */
+.not-todolist__title h1 {
+  font-size: 4rem;
+  font-family: 'Odibee Sans', cursive;
+  letter-spacing: 0.5rem;;
+  margin: 20px 10%;
+  text-shadow: -1px -1px #dfa6f5, 1px 1px #a6f5df;
+}
+
+/* main area */
+  /* add not-todo */
+.add-not-todo input {
+  display: inline-block;
+  width: 80%;
+  background-color: transparent;
+  height: 45px;
+  font-size: 1.5rem;
+  border:none;
+  border-bottom: thick double rgb(102, 93, 69, 0.3);
+}
+.add-not-todo input::placeholder {
+  color: #ccba8b;
+}
+
+  /* show not-todo */
+.show-not-todo {
+  margin: 10% 12%;
+  position: relative;
+  font-size: 2rem;
+  display: flex;
+  flex-direction: column;
+}
+.show-item {
+  display: flex;
+  margin-bottom: 1rem;
+  justify-content: space-between;
+  transition: background-color 0.3s;
+}
+.show-item:hover {
+  background-color: rgba(255, 241, 207, 0.5);
+  border-radius:5px;
+}
+
+    /* customize checkbox 參考 https://codepen.io/GeoffreyCrofte/pen/BiHzp */
+.show-not-todo input[type="checkbox"]:not(:checked), .show-not-todo input[type="checkbox"]:checked {
+  position: absolute;
+  left: 0;
+  opacity: 0.01;
+}
+.show-not-todo input[type="checkbox"]:not(:checked) + label, .show-not-todo input[type="checkbox"]:checked + label {
+  position: relative;
+  padding-left: 2.3em;
+  font-size: 2rem;
+  line-height: 1.2;
+  cursor: pointer;
+}
+.show-not-todo input[type="checkbox"]:not(:checked) + label::before, .show-not-todo input[type="checkbox"]:checked + label::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 1em;
+  height: 1em;
+  border: 2px solid #ccba8b;
+  border-radius: 0.3em;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, .1) 0 0 0 rgba(203, 34, 237, .2);
+  transition: all .2s;
+}
+.show-not-todo input[type="checkbox"]:not(:checked) + label::after, .show-not-todo input[type="checkbox"]:checked + label::after {
+  content: 'x';
+  position: absolute;
+  top: -0.1em;
+  left: 0.3em;
+  font-size: 2rem;
+  color: #a6bdf5;
+  transition: all .2s;
+}
+.show-not-todo input[type="checkbox"]:not(:checked) + label::after {
+  opacity: 0;
+  transform: scale(0) rotate(45deg);
+
+}
+.show-not-todo input[type="checkbox"]:checked + label::after {
+  opacity: 1;
+  transform: scale(1) rotate(0);
+  color: #a6bdf5;
+}
+.show-not-todo input[type="checkbox"]:hover + label::before {
+  transform: scale(1.2);
+  box-shadow: 0 0 0 3px #a6f5df;
+}
+.show-not-todo button {
+  color: #ccba8b;
+  background-color: transparent;
+  border: none;
+  font-size: xx-large;
+  height: 45px;
+  width: 45px;
+  border-radius: 50%;
+  transition: all .2s;
+}
+.show-not-todo button:hover {
+  transform: scale(1.2);
+  color: #fff1cf;
+  background-color: #f19072;
+}
+
+/* media: wide-screen, mobile */
+@media (min-width: 1300px) {
+  .wrapper {
+    width: 60%;
+  }
+}
+@media (max-width: 768px) {
+  .wrapper {
+    width: 100%;
+  }
+  .not-todolist__title h1 {
+    font-size: 2rem;  
+  }
+  .add-not-todo input {
+    font-size: 1.3rem;
+  }
+  .show-not-todo {
+    margin: 10% 9%;
+  }
+  .show-item {
+    align-items: baseline;
+  }
+  .show-not-todo input[type="checkbox"]:not(:checked) + label, .show-not-todo input[type="checkbox"]:checked + label {
+    font-size: 1.5rem;
+  }
+  .show-not-todo input[type="checkbox"]:not(:checked) + label::after, .show-not-todo input[type="checkbox"]:checked + label::after {
+    top: -0.28em;
+    left: 0.2em;
+  }
+}
+
+/* class for js handling */
+.crossout {
+  color: #a6bdf5;
+  opacity: 0.5;
+  text-decoration: line-through;
+}

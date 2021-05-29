@@ -1,0 +1,158 @@
+/* debug dev */
+/* .debug *, .debug {
+  border: 1px solid rgba(143, 188, 143, 0.3);
+} */
+/* general parts */
+.wrapper {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 12px;
+}
+h1 {
+  font-size: 36px;
+  color: #489846;
+}
+
+/* navbar */
+.navbar {
+  box-shadow: -1.4px -1.4px 6px 0 #97a2a0;
+}
+.navbar .wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 84px;
+  background: white;
+  padding: 0 24px;
+}
+.navbar__list {
+  display: flex;
+  font-size: 18px;
+}
+.navbar__list li {
+  margin-left: 12px;
+  border-radius: 8px;
+  padding: 10px;
+  transition: background-color 0.2s;
+}
+  /* button hover effet */
+.navbar__list li .active, .navbar__list li:hover {
+  background-color: #ff7286;
+  color: white;
+}
+
+/* main */
+.faq__section {
+  width: 70%;
+  margin: 0 auto;
+}
+  /* FAQ title  */
+.faq__title {
+  display: flex;
+  justify-content: center;
+  margin: 70px 0;
+}
+.faq__title h2 {
+  font-size: 26px;
+  border-left: 12px solid #a3dea2;
+  padding-left: 15px;
+}
+  /* FAQ lists */
+.questions-list-qa {
+  margin: 30px 3%;
+  border-bottom: 1px solid #a6e2c0;
+}
+.questions-list-qa h4 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 25px 0;
+  letter-spacing: 0.7px;
+}
+.questions-list-qa p {
+  font-size: 15px;
+  letter-spacing: 0.5px;
+  margin: 0 5% 45px; 
+}
+
+/* footer */
+footer {
+  margin-top: 10%;
+}
+.footer__banner {
+  background: #e8efee;
+  padding: 32px 0;
+  color: #484848;
+}
+.footer__banner .wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+.restaurant__info {
+  font-size: 14px;
+  margin-right: 16px;
+}
+.restaurant__info div + div {
+  margin-top: 10px;
+}
+.restaurant__site h1 {
+  text-align: center;
+  padding-bottom: 10px;
+}
+  /* copyright info*/
+.copyright__info {
+  background: #35564b;
+  font-size: 16px;
+  color: white;
+  text-align: center;
+  padding: 12px;
+}
+
+/* media: wide-screen, mobile */
+@media (min-width: 1300px) {
+  .faq__section {
+    width: 50%;
+  }
+}
+@media (max-width: 768px) {
+  .navbar .wrapper {
+    height: 120px;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 0;
+  }
+  .navbar h1 {
+    margin-top: 20px;
+  }
+  .navbar__list {
+    display: flex;
+    width: 100%;
+  }
+  .navbar__list li {
+    flex: 1;
+    margin-left: 0;
+    text-align: center;
+    border-radius: 0;
+  }
+  .faq__section {
+    width: 90%;
+  }
+  .footer__banner .wrapper {
+    flex-direction: column-reverse;
+  }
+  .restaurant__info {
+    margin-top: 15px;
+    margin-right: 0; 
+  }
+  .restaurant__site h1 {
+    text-align: left;
+  }
+}
+
+/* class for handling js */
+.hide {
+  display: none;
+}
+.questions-number {
+  color: #a3dea2;
+  padding-right: 5px;
+}
