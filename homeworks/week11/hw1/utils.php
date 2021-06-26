@@ -19,15 +19,18 @@
     return $err_msg;
   }
   
+  
   function getUserByUsername($username) {
     global $conn;
-    $sql = sprintf("SELECT * FROM jen713_wk11_msg_users WHERE username = '%s'", $username);
-    $result = $conn->query($sql);
+    $sql = "SELECT * FROM jen713_wk_msg_users WHERE username = ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("s", $username);
+    $result = $stmt->execute();
 
-    if (!$result) {
+    if(!$result) {
       die($conn->error);
     }
-
+    $result = $stmt->get_result();
     $row = $result->fetch_assoc();
     return $row;
   }
