@@ -22,7 +22,7 @@
   
   function getUserByUsername($username) {
     global $conn;
-    $sql = "SELECT * FROM jen713_wk_msg_users WHERE username = ?";
+    $sql = "SELECT * FROM jen713_wk11_msg_users WHERE username = ?";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("s", $username);
     $result = $stmt->execute();

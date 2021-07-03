@@ -1,6 +1,7 @@
 <?php
   session_start();
   require_once("conn.php");
+  require_once("utils.php");
   
   $username = NULL;
   if ($_SESSION["username"]) {
@@ -67,7 +68,7 @@
       <?php while ($row = $result->fetch_assoc()) { ?>
         <section class="posts__card" id="no-line">
           <div class="card__post-title">
-            <div class="post-title"><a href="show_post.php?id=<?php echo $row["id"]; ?>"><?php echo $row["title"]; ?></a></div>
+            <div class="post-title"><a href="show_post.php?id=<?php echo $row["id"]; ?>"><?php echo htmlEscape($row["title"]); ?></a></div>
             <div class="post__timestamp"><?php echo $row["created_at"]; ?></div>
             <div class="post__timestamp"><?php echo $row["category"]; ?></div>
           </div>
