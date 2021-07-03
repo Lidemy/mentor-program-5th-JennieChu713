@@ -68,7 +68,7 @@
           <a href="register.php" class="stateful__btn-register">Register</a>
           <a href="login.php" class="stateful__btn-login">Login</a>
         <?php } else { ?>
-          <span class="stateful__user">Hello, <?php echo $username; ?></span>
+          <span class="stateful__user">Hello, <?php echo htmlEscape($username); ?></span>
           <a href="handle_logout.php" class="stateful__btn-logout">Logout</a>
         <?php } ?>
         <?php if ($username === "admin") { ?>
