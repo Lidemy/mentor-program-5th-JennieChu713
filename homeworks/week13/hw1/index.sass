@@ -1,0 +1,198 @@
+@import _variables, _extends, _mixins
+*
+  box-sizing: border-box
+
+.navbar
+  height: 80px
+
+  &__site-name
+    font-size: 28px
+    font-weight: bold
+    
+    a
+      +noneDecorate()
+      color: $gray-b20-3
+  
+  &__list
+    +flexSet(flex, space-between)
+    flex: 1
+    margin: 0
+    padding: 0
+    list-style: none
+    
+    > div
+      +flexSet(flex)
+    li
+      margin-left: 21px
+    a
+      +noneDecorate()
+      color: $gray-b47
+      font-size: 16px
+  
+  &__wrapper
+    +flexSet($display:flex, $alignI:center)
+    height: 100%
+
+.wrapper
+  max-width: 1280px
+  margin: 0 auto
+  padding: 0px 12px
+
+.banner
+  +linearBackground($black, $gray-b26)
+  +flexSet(flex, center, center, column)
+  color: $gray-b93
+  height: 240px
+
+  &__wrapper > div
+    margin-top: 26px
+  
+  h1
+    font-size: 28px
+    margin: 0
+
+.container-wrapper
+  +flexSet(flex, center)
+  padding-bottom: 138px
+  min-height: calc(100vh - 350px)
+
+.post
+  +borderSolid($gray-b60)
+  width: 900px
+  padding: 30px
+  
+  & + .post
+    margin-top: 24px
+  
+  &__header
+    +flexSet(flex, space-between,center)
+    font-size: 16px
+  
+  &__action
+    +noneDecorate()
+    +borderSolid($gray-b66)
+    color: $gray-b66
+    font-size: 14px
+    padding: 3px 12px
+  
+  &__info
+    margin-top: 19px
+    padding: 12px 22px
+    background: $gray-b93
+  
+  &__content
+    margin-top: 17px
+    white-space: pre-line
+    line-height: 1.5em
+
+.posts
+  @extend %whiteContainer
+.container
+  @extend %whiteContainer
+
+.btn-read-more
+  +flexSet(inline-block)
+  +noneDecorate()
+  +borderSolid($gray-b45)
+  color: $gray-b45
+  padding: 12px 16px
+  margin-top: 36px
+
+.login-wrapper
+  +borderSolid($black)
+  +flexSet($display:flex, $alignI:center, $flexDir:column)
+  width: 527px
+  padding: 62px 72px
+  margin: 0 auto
+  margin-top: -30px
+  background: $white
+
+  form
+    @extend %wide
+  input
+    @extend %wide
+  
+  input[type=submit]
+    +linearBackground($black, $gray-b26)
+    height: 56px
+    color: $white
+    margin-top: 73px
+  
+  h2
+    font-size: 32px
+    font-weight: normal
+
+.input
+  &__field
+    margin-top: 16px
+    height: 40px
+
+  &__wrapper + &__wrapper
+    margin-top: 23px
+  
+  &__label
+    font-size: 14px
+    margin-left: 21px
+
+.edit-post
+  +borderSolid($gray-b60)
+  width: 900px
+  padding: 30px
+  
+  &__title
+    font-size: 20px
+  
+  &__input-wrapper
+    width: 100%
+    margin-top: 28px
+  
+    & input
+      @extend %pad6Wide
+    & textarea
+      @extend %pad6Wide
+  
+  &__btn-wrapper
+    text-align: right
+  &__btn
+    +flexSet(inline-block)
+    +borderSolid($gray-b45)
+    color: $gray-b45
+    cursor: pointer
+    padding: 10px 39px
+    margin-top: 25px
+
+.admin-post
+  +flexSet(flex, space-between, center)
+  border-bottom: 1px solid $gray-b60
+  font-size: 14px
+  width: 920px
+  padding: 24px 0px
+
+  &__title
+    font-size: 16px
+    margin-left: 16px
+  
+  &__info
+    +flexSet($display:flex, $alignI:center)
+    margin-left: 12px
+  
+  &__created-at
+    color: $gray-b56
+  
+  &__btn
+    +noneDecorate()
+    +borderSolid($gray-b66)
+    color: $gray-b66
+    padding: 4px 8px
+    margin-left: 8px
+    cursor: pointer
+    
+    &:last-child
+      margin-right: 16px
+
+footer
+  background-color:  $gray-b20-2
+  padding: 10px 0px
+  font-size: 14px
+  color: $white
+  text-align: center
