@@ -1,0 +1,212 @@
+/* html pre-use status: reset.css */
+/* debug dev */
+/* .debug *, .debug {
+  border: 1px solid rgba(85, 107, 47, 1);
+} */
+/* DESKTOP BASE */
+/* general parts */
+body {
+  color: #fff;
+  background: url('img/pawel-czerwinski-RPMcxbm2zi4-unsplash.jpeg') center/cover no-repeat;
+  background-attachment: fixed;
+}
+.wrapper {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 12px;
+}
+.fussyGlass {
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+.fussyGlass::after {
+  content: '';
+  position: absolute;
+  top: -30px;
+  left: -30px;
+  bottom: -30px;
+  right: -30px;
+  background: url('img/pawel-czerwinski-RPMcxbm2zi4-unsplash.jpeg') center/cover no-repeat;
+  filter: blur(.5rem);
+  opacity: 0.8;
+  z-index: -1;
+}
+  /* background credit */
+.background__credit {
+  width: 300px;
+  margin: 0 auto;
+  text-align: center;
+  opacity: .1;
+  text-shadow: 0rem 0px 2px #ff9472;
+  transition: all 1s;
+}
+.background__credit > a {
+  text-decoration: none;
+  color:#ffacfc;
+}
+.background__credit:hover {
+  opacity: 1;
+}
+
+/* navbar */
+nav {
+  box-shadow: 0 1px .3rem rgba(1, 255, 255, .6);/*rgba(120, 255, 254, .9)*/
+}
+nav .wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+h1 {
+  text-align: center;
+  font-size: 1.3rem; 
+  font-family: 'Press Start 2P', cursive;
+  word-spacing: -1rem;
+  text-shadow: 
+    0 1px 0 #c1a6ff,
+    0 2px 0 #ac89fd,
+    0 3px 0 #8452f6,
+    0 4px 0 #5d2ecc,
+    0 5px 0 #4112af;
+}
+.category__games {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+}
+.category__games li {
+  text-align: center;
+  margin-left: 1rem;
+  font-size: 20px;
+  padding: 5px 0 24px;
+  transition: all .5s;
+  border-radius: 5%;
+}
+.category__games li:hover {
+  color: rgba(184, 251, 60, .9);
+  transform:scale(1.1);
+  font-weight: 800;
+  cursor: pointer;
+  background: linear-gradient(rgba(253, 242, 0, .2), rgba(0,0,0, 0), rgba(0,0,0, 0), rgba(0,0,0,0));
+}
+
+/* main  (most for js handling class)*/
+main {
+  margin: 3rem 0;
+}
+h2 {
+  font-size: 50px;
+  text-shadow: 0rem 3px .5rem rgba(1, 255, 255, 1);
+  margin: 5% 5% 4rem;
+}
+h3 {
+  font-size: 30px;
+  border: 1px solid rgba(255, 172, 252, .6);
+  margin: 0 20%;
+  padding: 5%;
+  margin-bottom: 6rem;
+}
+h2, h3 {
+  text-align: center;
+}
+.game__streamList {
+  display: flex;
+  flex-flow: row wrap;
+}
+.game__card {
+  display: column;
+  padding: 1.5rem;
+  border-radius: 5px;
+  margin-bottom: 5rem;
+  width: 320px;
+  opacity: .7;
+  transition: all .5s;
+}
+.game__card:not(:nth-child(3n)) {
+  margin-right: calc(10% / 2)
+}
+.game__card:hover {
+  opacity: 1;
+  transform: scale(1.3);
+  box-shadow: 0 1px 1rem rgba(1, 255, 255, .6);
+  cursor: all-scroll;
+}
+.game__snapshot {
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+.game__gamer-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.gamer__status {
+  margin: 15px;
+  margin-left: 0;
+}
+.status-avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  box-shadow: 0 0 10px #ff9472;
+  margin-bottom: 15px;
+}
+.status-userid {
+  text-align: center;
+  font-weight: 700;
+  border-top: 1px solid rgba(255, 172, 252, .3);
+  border-radius: 7px;
+  padding: 5px 3px;
+  background: linear-gradient(rgba(230, 100, 101, .3), rgba(0, 0, 0, 0));
+  max-width: 100px;
+  overflow : hidden;
+  text-overflow : ellipsis;
+  white-space : nowrap;
+}
+
+/* device: mobile */
+@media (max-width: 1120px) {
+  .game__card:not(:nth-child(3n)) {
+    margin-right: 0;
+  }
+  .game__streamList {
+    justify-content: space-evenly;
+  }
+  .game__card:hover {
+    transform: scale(1.1);
+  }
+}
+@media (max-width: 768px) {
+  .wrapper {
+    padding: 0;
+  }
+  nav .wrapper {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  h1 {
+    margin: 5% 0;
+  }
+  .category__games li {
+    margin: 0;
+    padding: 12px;
+  }
+  h2 {
+    font-size: 40px;
+    margin-bottom: 2rem;
+  }
+  .game__streamList {
+    flex-direction: column;
+    align-content: center;
+  }
+  .game__card:hover {
+    transform: scale(1.3);
+  }
+}
+@media (max-width: 500px) {
+  .category__games {
+    flex-direction: column;
+  }
+}
