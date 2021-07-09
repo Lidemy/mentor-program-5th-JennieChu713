@@ -1,0 +1,15 @@
+@mixin borderSolid($color)
+  border: 1px solid  $color
+@mixin linearBackground($bottom, $top)
+  background-image: linear-gradient(to top, $bottom, $top)
+@mixin noneDecorate()
+  text-decoration: none
+@mixin flexSet($display:inline, $justC:normal, $alignI:normal, $flexDir:row)
+  @if $display != inline
+    display: $display
+  @if $justC != normal
+    justify-content: $justC
+  @if $alignI != normal
+    align-items: $alignI
+  @if $flexDir != row
+    flex-direction: $flexDir
