@@ -1,0 +1,39 @@
+<%- include('../templates/header') %>
+<%- include('../templates/navbar_back') %>
+  <main class="admin container">
+    <%- include('../templates/alert') %>
+    <section class="admin__object-new">
+      <div class="object__title">抽獎設定</div>
+      <a class="object-new-btn" href="/backstage/prize/new">新增</a>
+    </section>
+    <section class="admin__objects">
+      <!-- prize render sample -->
+      <% for (let prize of prizes) { %>
+      <div class="object__info">
+        <div class="info__object-status">
+          <div class="info__img"><img src="<%= prize.image %>" alt=""></div>
+          <div class="object-status__content">
+          <div class="info__section">
+            <div class="section__title">獎項</div>
+            <div class="info__title"><%= prize.name %></div>
+          </div>
+          <div class="info__section">
+            <div class="section__title">中獎機率</div>
+            <div class="info__rate"><%= prize.rate %>%</div>
+          </div>
+          <div class="info__section">
+            <div class="section__title">數量</div>
+            <div class="info__amount"><%= prize.amount %></div>
+          </div>
+          <div class="info__section">
+            <div class="section__title">說明</div>
+            <div class="info__desc"><%= prize.description %></div>
+          </div>
+        </div>
+      </div>
+        <div class="info__status"><a class="edit-btn" href="/backstage/prize/<%= prize.id %>/edit">編輯</a> <a class="delete-btn" href="/backstage/prize/<%= prize.id %>/delete">刪除</a></div>
+      </div>
+      <% } %>
+    </section>
+  </main>
+<%- include('../templates/footer') %>
