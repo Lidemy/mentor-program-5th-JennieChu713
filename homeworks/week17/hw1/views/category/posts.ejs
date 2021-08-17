@@ -1,0 +1,20 @@
+<%- include('../templates/header') %>
+<%- include('../templates/navbar') %>
+<%- include('../templates/banner') %>
+  <main class="blog">
+    <!-- post render -->
+    <% for (let post of posts.Posts) { %>
+    <article class="blog__posts">
+      <div class="posts__title"><a href="/posts/<%= post.id %>"><%= post.title %></a></div>
+      <div class="posts__status">
+        <div class="status__timestamp"><%= post.createdAt.toLocaleDateString() %></div>
+        <div class="status__category"><%= posts.categoryName %></div>
+        <% if (username) { %>
+        <a href="/posts/<%= post.id %>/edit" class="status__edit-btn">編輯</a>
+        <a href="/posts/<%= post.id %>/delete" class="status__delete-btn">刪除</a>
+        <% } %>
+      </div>
+    </article>
+    <% } %>
+  </main>
+<%- include('../templates/footer') %>

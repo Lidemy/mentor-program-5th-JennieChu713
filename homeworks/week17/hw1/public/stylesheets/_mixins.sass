@@ -1,0 +1,17 @@
+//flex setting
+@mixin flexSet($justC:normal, $alignI:normal, $flexD:row)
+  @if $justC != normal
+    justify-content: $justC
+  @if $alignI != normal
+    align-items: $alignI
+  @if $flexD != row
+    flex-direction: $flexD
+
+// RWD
+@mixin wideScreen
+  @media(min-width: 1200px)
+    @content
+
+@mixin mobile
+  @media(max-width: 630px)
+    @content

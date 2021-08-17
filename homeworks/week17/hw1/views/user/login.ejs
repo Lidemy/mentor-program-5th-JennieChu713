@@ -1,0 +1,27 @@
+<%- include('../templates/header') %>
+<%- include('../templates/navbar') %>
+<%- include('../templates/banner') %>
+  <main class="blog">
+    <article class="blog__login">
+      <h3 class="login__title">Login</h3>
+      <form class="login__form" action="/login" method="POST">
+        <label for="username">Username: </label>
+        <input id="username" type="text" name="username" placeholder="username">
+        <label for="password">Password: </label>
+        <input id="password" type="password" name="password" placeholder="password">
+        <input type="submit">
+    </form>
+    <!-- ONCE REGISTER -->
+    <!-- <form class="login__form" action="/register" method="POST">
+      <label for="username">Username: </label>
+      <input id="username" type="text" name="username" placeholder="username">
+      <label for="nickname">Nickname: </label>
+      <input id="nickname" type="text" name="nickname" placeholder="nickname">
+      <label for="password">Password: </label>
+      <input id="password" type="password" name="password" placeholder="password">
+      <textarea name="introduction" placeholder="introduction"></textarea>
+      <input type="submit">
+  </form> -->
+    </article>
+  </main>
+<%- include('../templates/footer') %>

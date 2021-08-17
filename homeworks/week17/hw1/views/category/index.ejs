@@ -1,0 +1,21 @@
+<%- include('../templates/header') %>
+<%- include('../templates/navbar') %>
+<%- include('../templates/banner') %>
+  <main class="blog">
+    <!-- post render -->
+    <% for (let category of categories) { %>
+    <article class="blog__category">
+      <div class="category__title"><%= category.categoryName %></div>
+      <div class="category__total"><a href="category/<%= category.id %>/posts"><%= category.Posts.length %> 篇文章</a></div>
+      <div class="category__status">
+        <% if (username) { %>
+        <a href="/category/<%= category.id %>/edit" class="status__edit-btn">編輯</a>
+          <% if (!category.isDefault) { %>
+        <a href="/category/<%= category.id %>/delete" class="status__delete-btn">刪除</a>
+          <% } %>
+        <% } %>
+      </div>
+    </article>
+    <% } %>
+  </main>
+<%- include('../templates/footer') %>
