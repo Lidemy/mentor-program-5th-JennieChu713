@@ -1,0 +1,14 @@
+<%- include('../templates/header') %>
+<%- include('../templates/navbar') %>
+<%- include('../templates/banner') %>
+  <main class="blog">
+    <article class="blog__editor">
+      <div class="about__title">About Me</div>
+      <form class="editor__form" action="/about/edit" method="POST">
+        <input type="text" name="nickname" placeholder="nickname" value="<%= about.nickname%>">
+        <textarea name="introduction" rows="15" placeholder="about me..."><%= about.introduction %></textarea>
+        <input type="submit">
+      </form>
+    </article>
+  </main>
+<%- include('../templates/footer') %>

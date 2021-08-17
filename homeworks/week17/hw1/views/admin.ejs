@@ -1,0 +1,43 @@
+<%- include('./templates/header') %>
+<%- include('./templates/navbar') %>
+  <main class="blog">
+    <div class="blog__control">
+    <section class="control__categories">
+      <h2 class="admin__category">Categories</h2>
+      <!-- render -->
+      <% for (let category of categories) { %>
+      <article class="blog__admin">
+        <div class="admin__title"><%= category.categoryName %></div>
+        <div class="admin__total">(<a href="/category/<%= category.id %>/posts"><%= category.Posts.length %></a>)</div>
+        <a href="/category/<%= category.id %>/edit" class="status__edit-btn">編輯</a>
+        <% if (!category.isDefault) { %>
+        <a href="/category/<%= category.id %>/delete" class="status__delete-btn">刪除</a>
+        <% } %>
+      </article>
+      <% } %>
+    </section>
+    <section class="control__posts">
+      <h2 class="admin__posts">Post</h2>
+      <!-- render -->
+      <% for (let category of categories) { %>
+        <% category.Posts.forEach(post => { %>
+      <article class="blog__admin">
+        <div class="admin__title"><a href="posts/<%= post.id %>"><%= post.title %></a></div>
+          <div class="status__timestamp"><%= post.createdAt.toLocaleDateString() %></div>
+          <div class="status__category"><%= category.categoryName %></div>
+          <a href="/posts/<%= post.id %>/edit" class="status__edit-btn">編輯</a>
+          <a href="/posts/<%= post.id %>/delete" class="status__delete-btn">刪除</a>
+      </article>
+        <% }) %>
+      <% } %>
+    </section>
+    <section class="control__about">
+      <h2 class="admin__about">About Me</h2>
+      <article class="blog__admin">
+        <div class="admin__status"><%= user.introduction %></div>
+        <div class="about__edit"><a href="/about/edit" class="status__edit-btn">編輯</a></div>
+      </article>
+    </section>
+    </div>
+  </main>
+<%- include('./templates/footer') %>

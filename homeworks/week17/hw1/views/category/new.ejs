@@ -1,0 +1,14 @@
+<%- include('../templates/header') %>
+<%- include('../templates/navbar') %>
+<%- include('../templates/banner') %>
+  <main class="blog">
+    <article class="blog__editor">
+      <div class="about__title">New Category</div>
+      <form class="editor__form" action="/category/new" method="POST">
+        <label for="category_name"></label>
+        <input id="category_name" type="text" name="categoryName" placeholder="new category name">
+        <input type="submit">
+      </form>
+    </article>
+  </main>
+<%- include('../templates/footer') %>

@@ -1,2 +1,6 @@
 examples/
 /homeworks/week13/hw2
+models/
+migrations/
+seeders/
+node_modules/

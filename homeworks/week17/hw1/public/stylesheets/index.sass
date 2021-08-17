@@ -1,0 +1,454 @@
+@import _variables, _extends, _mixins
+
+// general parts
+*
+  color: $sabi-51
+  box-sizing: border-box
+
+a
+  text-decoration: none
+  transition: all .3s
+
+a:hover
+  color: $sabi-153
+
+.error-msg, .success-msg
+  font-size: 2rem
+  text-align: center
+  padding: 1rem 1.3rem
+  width: 60%
+  position: relative
+  top: -2.7rem
+  border-radius: 30px
+  cursor: pointer
+  z-index: 100
+  margin: .5rem auto
+  @include wideScreen
+    width: 40%
+
+.error-msg
+  color: $haku-251
+  background: rgba(199, 165, 167, .8)
+
+.success-msg
+  color: $sabi-51
+  background: rgba(190, 207, 230, .7)
+
+.close-btn
+  color: rgba($haku-251, .5)
+  position: absolute
+  top: 15px
+  left: 20px
+
+//resource: https://stackoverflow.com/questions/46559354/how-to-set-the-height-of-ckeditor-5-classic-editor/61578556#61578556
+.ck-editor__editable
+  min-height: 400px !important
+  max-height: 800px !important
+
+//since use reset.css, it need to setup font-size and weight
+h2 // ckeditor h1
+  font-size: 3rem
+  margin: 1.5rem 0
+h3 // ckeditor h2
+  font-size: 2.5rem
+  margin: 1rem 0
+h4 // ckeditror h3
+  font-size: 2rem
+  margin: .5rem 0
+p
+  font-size: 1.5rem
+  line-height: 2rem
+
+
+// navbar
+.navbar__menu
+  display: flex
+  justify-content: space-between
+  padding: 0 .5rem
+  min-height: 4rem
+  align-items: center
+  background: $haku-251
+  @include wideScreen
+    padding: 0 10%
+  @include mobile
+    flex-direction: column
+    margin: 3% 0
+
+
+.menu__
+  &left
+    @extend %flex
+    +flexSet($alignI: center)
+
+    div
+      margin-right: .5rem
+
+  &right
+    a
+      margin-left: .5rem
+
+.left__logo
+  font-size: 1.5rem
+  font-weight: 800
+
+.right
+  &__new-post
+    @extend %status-btn
+  &__new-post:hover
+    @extend %btn-hover
+  &__login
+    @extend %status-btn
+  &__login:hover
+    @extend %btn-hover
+  &__logout
+    @extend %status-btn
+  &__logout:hover
+    @extend %btn-hover
+  &__new-category
+    @extend %status-btn
+  &__new-category:hover
+    @extend %btn-hover
+  &__admin
+    @extend %status-btn
+  &__admin:hover
+    @extend %btn-hover
+
+// banner
+.banner
+  text-align: center
+  background-image: linear-gradient(to top,$sabi-153, $sabi-200)
+  min-height: 12rem
+  height: 12rem
+  position: absolute
+  width: 100%
+
+  &__main-title
+    font-size: 2.7rem
+    color: $haku-251
+    margin: 2.5rem 0 1.5rem
+    position: relative
+  &__sub-title
+    color: rgba($haku-251, .6)
+    font-size: 1.5rem
+
+// main
+.blog
+  min-height: 100vh
+  background: $haku-240
+
+  &__posts
+    @extend %flex
+    +flexSet($justC:space-between, $alignI:center)
+    margin: 1rem auto
+    width: 70%
+    position: relative
+    top: 9.5rem
+    background: $haku-251
+    padding: 1.5rem
+    border-bottom: 1px solid $sabi-51
+    @include wideScreen
+      width: 50%
+    @include mobile
+      width: 95%
+  
+  &__post
+    @extend %flex
+    +flexSet($flexD:column)
+    margin: 1rem auto
+    width: 70%
+    position: relative
+    top: 9.5rem
+    background: $haku-251
+    padding: 1.5rem
+    border-bottom: 1px solid $sabi-51
+    @include wideScreen
+      width: 50%
+    @include mobile
+      width: 95%
+
+  &__about
+    @extend %flex
+    +flexSet($flexD:column)
+    margin: 1rem auto
+    width: 70%
+    position: relative
+    top: 9.5rem
+    background: $haku-251
+    padding: 1.5rem
+    border-bottom: 1px solid $sabi-51
+    @include wideScreen
+      width: 50%
+    @include mobile
+      width: 95%
+
+  &__login
+    margin: 1rem auto
+    width: 70%
+    position: relative
+    top: 9.5rem
+    background: $haku-251
+    padding: 1.5rem
+    box-shadow: inset 0 -3em 4em rgba(42,51,45,.1), 0 0 0 2px rgb(248,251,248), 0.3em 0.3em 1em rgba(42,51,45,0.3)
+    @include wideScreen
+      width: 50%
+    @include mobile
+      width: 95%
+
+  &__editor
+    margin: 1rem auto
+    width: 80%
+    position: relative
+    top: 9.5rem
+    background: $haku-251
+    padding: 1.5rem
+    box-shadow: inset 0 -3em 4em rgba(42,51,45,.1), 0 0 0 2px rgb(248,251,248), 0.3em 0.3em 1em rgba(42,51,45,0.3)
+    @include wideScreen
+      width: 50%
+    @include mobile
+      width: 95%
+  
+  &__category
+    @extend %flex
+    +flexSet($justC:space-between, $alignI:center)
+    margin: 1rem auto
+    width: 70%
+    position: relative
+    top: 9.5rem
+    background: $haku-251
+    padding: 1.5rem
+    border-bottom: 1px solid $sabi-51
+    @include wideScreen
+      width: 50%
+    @include mobile
+      width: 95%
+  
+  &__control
+    height: 100vh
+    @extend %flex
+    flex-wrap: wrap
+    margin: 0 auto
+    width: 90%
+    @include wideScreen
+      margin: 0 auto
+      width: 70%
+    @include mobile
+      width: 98%
+
+
+// login page
+.login
+  &__title
+    font-size: 2rem
+    text-align: center
+  
+  &__form
+    @extend %flex
+    +flexSet($flexD:column)
+    margin: 1.3rem auto
+    width: 85%
+
+    label, input
+      font-size: 1.4rem
+      margin-bottom: 1.1rem
+
+    input[name]
+      padding: 7px 5px
+      border: 1px solid $sabi-153
+
+    input::placeholder
+      color: $sabi-204
+
+    input:focus
+      outline: none
+      box-shadow: 0 0 3px 1px $sabi-204
+
+    input[type="submit"]
+      width: 50%
+      margin: 2rem auto
+      background: none
+      border: 1px solid $sabi-51
+      padding: 7px 0
+      transition: all .3s
+
+    input[type="submit"]:hover
+      background: $sabi-200
+      color: $haku-251
+      border-color: transparent
+
+
+// edit, new pages
+.editor
+  &__form
+    @extend %flex
+    +flexSet($flexD:column)
+    margin: 1.3rem auto
+    width: 90%
+
+    label, input, select
+      font-size: 1.2rem
+      margin-bottom: 1.1rem
+
+    input[name]
+      padding: 7px 5px
+      border: 1px solid $sabi-153
+    
+    input[type="submit"]
+      width: 50%
+      margin: 2rem auto 0
+      background: none
+      border: 1px solid $sabi-51
+      padding: 7px 0
+      transition: all .3s
+
+    input[type="submit"]:hover
+      background: $sabi-200
+      color: $haku-251
+      border-color: transparent
+
+.post
+  &__status
+    @extend %flex
+    +flexSet($justC:space-between, $alignI:center)
+    padding-bottom: 2%
+    border-bottom: 1px solid $sabi-153
+
+.status
+  &__post-title
+    font-size: 1.5rem
+  &__info
+    @extend %flex
+    +flexSet($justC:space-between, $alignI:center)
+
+  &__category
+    @extend %row-margin
+    color: $sabi-153
+    font-style: oblique
+    padding-right: 10px
+    width: 15%
+    overflow: hidden
+    white-space: nowrap
+    text-overflow: ellipsis
+
+.info
+  &__timestamp
+    @extend %row-margin
+    color: $sabi-153
+    font-style: oblique
+    padding-right: 10px
+
+// about page
+.about
+  &__title
+    font-size: 2rem
+    text-align: center
+    padding-bottom: 2%
+    border-bottom: 1px solid $sabi-153
+  
+  &__status
+    margin: 1rem 4% 1.3rem
+    font-size: 1.2rem
+    white-space: pre-line
+
+  &__status-post
+    margin: 1rem 4% 1.3rem
+  
+  &__edit
+    text-align: end
+    margin: 1.3rem 0 0
+
+
+.posts__title
+  font-size: 1.3rem
+  width: 60%
+  overflow: hidden
+  white-space: nowrap
+  text-overflow: ellipsis
+
+.posts__status
+  @extend %flex
+  +flexSet($alignI:center)
+
+.status
+  &__timestamp
+    @extend %row-margin
+    color: $sabi-153
+    font-style: oblique
+  &__edit-btn
+    @extend %status-btn, %row-margin
+  &__edit-btn:hover
+    @extend %btn-hover
+  &__delete-btn
+    @extend %status-btn, %row-margin
+  &__delete-btn:hover
+    @extend %btn-hover
+
+
+.category
+  &__status
+    @extend %flex
+    +flexSet($alignI:center)
+    padding-bottom: 2%
+  
+  &__title
+    font-size: 1.3rem
+    font-weight: 800
+
+
+// admin
+.control
+  &__categories, &__posts, &__about
+    margin: 1.3rem 0.5rem
+    background: $haku-251
+    padding: 2%
+  
+  &__categories, &__posts
+    min-height: 50%
+    max-height: 60%
+  
+  &__categories
+    @include wideScreen
+      width: 40%
+    .admin__title
+      width: 40%
+      overflow: hidden
+      white-space: nowrap
+      text-overflow: ellipsis
+  
+  &__posts
+    flex-grow: 2
+    width: 50%
+
+    .admin__title
+      width: 35%
+      overflow: hidden
+      white-space: nowrap
+      text-overflow: ellipsis
+  
+  &__about
+    min-height: 30%
+    max-height: 40%
+    width: 100%
+
+.admin
+  &__category, &__posts, &__about
+    font-size: 1.4rem
+    border-bottom: 1px solid $sabi-200
+  
+  &__status
+    max-width: 80%
+    margin: 0 auto
+    white-space: pre-line
+
+.blog__admin
+  @extend %flex
+  +flexSet($alignI:center)
+  margin: .7rem 0
+
+
+// footer
+.copyright-info
+  background-image: linear-gradient(to bottom,$sabi-153, $sabi-200)
+  text-align: center
+  p
+    padding: 1rem 0
+    color: $haku-251
