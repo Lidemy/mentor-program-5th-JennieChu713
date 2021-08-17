@@ -1,0 +1,42 @@
+<%- include('../templates/header') %>
+<%- include('../templates/navbar_front') %>
+  <header class="menu__banner">
+  </header>
+  <main class="menu container">
+    <section class="menu__popular">
+      <div class="popular__title">熱銷搶購中</div>
+      <div class="popular__looks">
+        <!-- popular cuisine render -->
+      </div>
+    </section>
+    <section class="menu__order-intro">
+      <div class="order-intro__left"><img src="/img/order-ad.png" alt=""></div>
+      <div class="order-intro__right">
+        <div class="right__title">在家也能輕鬆<br/>咬一口我們的鮮甜清爽</div>
+        <div class="right__content">
+          <p>您再也不必受限於時間或地點，隨時隨地透過我們24小時的線上購物選購，咬一口廚房堅持以細選食材、輕盈口感，呈現食材本身的原滋原味。</p>
+          <p>我們將咬一口的經典菜色研發製成相應當季的包裝食品及各式精美的伴手禮盒。將剛出爐的新鮮迅速送達家人手中，也適合與更多喜愛咬一口的親朋好友分享難得的健康滋味。</p>
+        </div>
+      </div>
+    </section>
+    <section class="menu__cuisine">
+      <div class="cuisine__title">立即輕鬆選購</div>
+      <!-- cuisine render -->
+      <section class="cuisine__cards">
+        <% for (let cuisine of cuisines) { %>
+        <article class="cards__card">
+          <div class="card__cuisine-display"><img src="<%= cuisine.image %>" alt=""></div>
+          <div class="card__cuisine-info"><p class="info__name"><%= cuisine.name %></p><p class="info__price"><%= cuisine.price %></div></p>
+          <a class="card__add-cart-btn" href="">加入購物車</a>
+        </article>
+        <% } %>
+      </section>
+    </section>
+    <section class="menu__location">
+      <div class="location__title">還是想要親身體會我們的服務？</div>
+      <div class="location__map"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3615.002890183707!2d121.5623502150063!3d25.03397598397251!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442abb6da9c9e1f%3A0x1206bcf082fd10a6!2zMTEw5Y-w5YyX5biC5L-h576p5Y2A5L-h576p6Lev5LqU5q61N-iZnw!5e0!3m2!1szh-TW!2stw!4v1621259825926!5m2!1szh-TW!2stw" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe></div>
+    </section>
+    </section>
+  </main>
+<%- include('../templates/contacts') %>
+<%- include('../templates/footer') %>

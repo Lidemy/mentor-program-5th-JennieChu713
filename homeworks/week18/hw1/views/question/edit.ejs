@@ -1,0 +1,19 @@
+<%- include('../templates/header') %>
+<%- include('../templates/navbar_back') %>
+  <main class="admin container">
+    <%- include('../templates/alert') %>
+    <section class="admin__object-edit">
+      <h2 class="edit__title">問題設定</h2>
+      <form action="/backstage/question/<%= question.id %>/edit" method="POST" class="edit__area">
+        <label for="seqOrder">問題順序：</label>
+        <input type="number" name="seqOrder" id="seqOrder" value="<%= question.seqOrder %>">
+        <label for="question">問題內容：</label>
+        <textarea id="question" name="question" rows="5" placeholder="問題"><%= question.question %></textarea>
+        <label for="answer">回答內容：</label>
+        <textarea id="answer" name="answer" rows="5" type="text" placeholder= "回答"><%= question.answer %></textarea>
+        <input type="hidden" name="id" value="<%= question.id %>">
+        <input type="submit" value="更改">
+      </form>
+    </section>
+  </main>
+  <%- include('../templates/footer') %>

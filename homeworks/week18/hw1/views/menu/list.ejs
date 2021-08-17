@@ -1,0 +1,33 @@
+<%- include('../templates/header') %>
+<%- include('../templates/navbar_back') %>
+  <main class="admin container">
+    <%- include('../templates/alert') %>
+    <section class="admin__object-new">
+      <div class="object__title">菜單設定</div>
+      <a class="object-new-btn" href="/backstage/menu/new">新增</a>
+    </section>
+    <section class="admin__objects">
+      <!-- menu render sample -->
+      <% for (let cuisine of cuisines) { %>
+      <div class="object__info">
+        <div class="info__object-status">
+          <div class="info__img"><img src="<%= cuisine.image %>" alt=""></div>
+          <div class="object-status__content">
+          <div class="info__section">
+            <div class="section__title">菜色名稱</div>
+            <div class="info__title"><%= cuisine.name %></div>
+          </div>
+          <div class="info__section">
+            <div class="section__title">價格</div>
+            <div class="info__rate"><%= cuisine.price %></div>
+          </div>
+        </div>
+      </div>
+        <div class="info__status"><a class="edit-btn" href="/backstage/menu/<%= cuisine.id %>/edit">編輯</a> <a class="delete-btn" href="/backstage/menu/<%= cuisine.id %>/delete">刪除</a></div>
+      </div>
+      <% } %>
+      <div class="object__info invisible">
+      </div>
+    </section>
+  </main>
+<%- include('../templates/footer') %>

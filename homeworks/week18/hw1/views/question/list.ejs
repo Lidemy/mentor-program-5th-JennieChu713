@@ -1,0 +1,26 @@
+<%- include('../templates/header') %>
+<%- include('../templates/navbar_back') %>
+  <main class="admin container">
+    <%- include('../templates/alert') %>
+    <section class="admin__object-new">
+      <div class="object__title">常見問題設定</div>
+      <a class="object-new-btn" href="/backstage/question/new">新增</a>
+    </section>
+    <section class="admin__objects">
+      <!-- question and answer render -->
+      <% for(let question of questions){ %>
+      <div class="object__list">
+        <div class="info__mark">常見問題順序編號 <%= question.seqOrder %></div>
+        <div class="info__section">
+          <div class="info__desc"><%= question.question %></div>
+        </div>
+        <div class="info__section">
+          <div class="section__title">回答</div>
+          <div class="info__desc"><%= question.answer %></div>
+        </div>
+        <div class="info__status"><a class="edit-btn" href="/backstage/question/<%= question.id %>/edit">編輯</a> <a class="delete-btn" href="/backstage/question/<%= question.id %>/delete">刪除</a></div>
+      </div>
+      <% } %>
+    </section>
+  </main>
+<%- include('../templates/footer') %>
