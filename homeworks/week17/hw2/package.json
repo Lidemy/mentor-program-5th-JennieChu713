@@ -1,0 +1,31 @@
+{
+  "name": "hw2",
+  "version": "1.0.0",
+  "description": "'restaurant prize function parts'",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "npm run clearout && npm run db:migrate && npm run db:seed && node index.js",
+    "db:migrate": "npx sequelize db:migrate",
+    "db:seed" : "npx sequelize db:seed:all",
+    "db:unmigrate": "npx sequelize db:migrate:undo:all",
+    "db:clearseed": "npx sequelize db:seed:undo:all",
+    "clearout": "npm run db:unmigrate && npm run db:clearseed"
+  },
+  "author": "JC",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "connect-flash": "^0.1.1",
+    "ejs": "^3.1.6",
+    "express": "^4.17.1",
+    "express-session": "^1.17.2",
+    "mysql2": "^2.3.0",
+    "sass": "^1.38.0",
+    "sequelize": "^6.6.5",
+    "sequelize-cli": "^6.2.0"
+  },
+  "engines": {
+    "node": "14.x"
+  }
+}

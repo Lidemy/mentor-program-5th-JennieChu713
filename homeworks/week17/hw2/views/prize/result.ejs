@@ -1,0 +1,17 @@
+<%- include('../templates/header') %>
+<%- include('../templates/navbar_front') %>
+<% if (prize) { %> 
+  <main class="prize" style="background: url('<%= prize.image %>') center/cover no-repeat">
+    <section class="prize__result">
+      <div class="result__title"><%= prize.name %></div>
+          <div class="result__content"><%= prize.description %></div>
+<% } else { %>
+  <main class="prize" style="background: #333333">
+    <section class="prize__result">
+        <div class="result__title">銘謝惠顧</div>
+<% } %>
+      <a href="/prize/result" class="event__get-prize-btn">我要抽獎</a>
+    </section>
+  </main>
+  <%- include('../templates/contacts') %>
+  <%- include('../templates/footer') %>
