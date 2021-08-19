@@ -1,0 +1,16 @@
+<%- include('../templates/header') %>
+<%- include('../templates/navbar') %>
+<%- include('../templates/banner') %>
+  <main class="blog">
+    <!-- post render -->
+    <article class="blog__about">
+      <div class="about__title">About <%= about.nickname %></div>
+      <div class="about__status">
+        <%= about.introduction %>
+      </div>
+      <% if (username) { %>
+      <div class="about__edit"><a href="/about/edit" class="status__edit-btn">編輯</a></div>
+      <% } %>
+    </article>
+  </main>
+<%- include('../templates/footer') %>

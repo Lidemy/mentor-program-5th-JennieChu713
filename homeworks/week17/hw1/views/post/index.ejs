@@ -1,0 +1,21 @@
+<%- include('../templates/header') %>
+<%- include('../templates/navbar') %>
+<%- include('../templates/banner') %>
+  <main class="blog">
+    <!-- post render -->
+    <article class="blog__post">
+      <div class="post__status">
+        <div class="status__post-title"><%= post.title %></div>
+        <div class="status__info">
+          <div class="info__timestamp"><%= post.createdAt.toLocaleString() %></div>
+          <a href="/category/<%= post.Category.id %>/posts" class="info__category"><%= post.Category.categoryName %></a>
+          <% if (username) { %>
+          <a href="/posts/<%= post.id %>/edit" class="status__edit-btn">編輯</a>
+          <a href="/posts/<%= post.id %>/delete" class="status__delete-btn">刪除</a>
+          <% } %>
+        </div>
+      </div>
+      <div class="about__status-post"><%= post.content %></div>
+    </article>
+  </main>
+<%- include('../templates/footer') %>

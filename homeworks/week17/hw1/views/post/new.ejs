@@ -1,0 +1,21 @@
+<%- include('../templates/header') %>
+<%- include('../templates/navbar') %>
+<%- include('../templates/banner') %>
+  <main class="blog">
+    <article class="blog__editor">
+      <form class="editor__form" action="/posts/new" method="POST">
+        <label for="title">標題</label>
+        <input type="text" name="title" placeholder="title">
+        <label for="category">分類</label>
+        <select name="categoryId" id="category">
+          <!-- catagory render -->
+          <% categories.forEach(category => { %>
+            <option value="<%= category.id %>"><%= category.categoryName %></option>
+          <% }) %>
+        </select>
+        <textarea name="content" id="editor" placeholder="write post here"></textarea>
+        <input type="submit">
+      </form>
+    </article>
+  </main>
+<%- include('../templates/footer') %>

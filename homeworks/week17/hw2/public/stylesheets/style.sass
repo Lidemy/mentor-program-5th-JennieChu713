@@ -1,0 +1,765 @@
+@import _variables.sass, _mixins.sass, _extends.sass
+
+// dev tool debug
+// .debug *, .debug
+//   border: 1px solid darkseagreen
+
+// general parts
+html
+  height: 100%
+
+body
+  min-height: 100%
+  display: grid
+  grid-template-rows: 1fr auto
+a 
+  text-decoration: none
+  color: $black
+
+.container
+  margin: 0 5%
+  @include mobile
+    margin: 0 1.5%
+
+.success-msg, .error-msg
+  text-align: center
+  margin: 1.5rem auto
+  font-size: 1.4rem
+  padding: 2rem 0
+  border-radius: 10px
+  width: 60%
+  position: relative
+  cursor: pointer
+  box-shadow: 1px 2px 3px 0 rgba($gray-162, .4)
+  opacity: .8
+
+.success-msg
+  background: rgba($green-222, .4)
+
+.error-msg
+  background: rgba($red-255, .4)
+
+.close-btn
+  color: $white
+  font-size: 1.5rem
+  position: absolute
+  top: 5px
+  right: 10px
+
+.hide
+  display: none
+
+.invisible
+  opacity: 0
+
+// navbar
+.navbar
+  +flexSet($justC:space-between)
+  padding: 1.1rem 0
+  background: $white
+  box-shadow: -1.4px -1.4px 6px 0 $gray-162
+  @include mobile
+    flex-direction: column
+    align-items: center
+  
+  &__left // ADMIN
+    +flexSet($alignI:center)
+    @include mobile
+      flex-direction: column
+  
+  &__right
+    +flexSet($justC: space-between, $alignI: center)
+    margin: 0 3%
+    @include mobile
+      margin: 0
+      margin-top: 2rem 
+  
+  .left
+    &__logo a
+      font-size: 1.8rem
+      color: $green-152
+      @include mobile
+        margin-bottom: 2rem
+    
+    // ADMIN
+    &__subtitle 
+      font-size: 1.4rem
+      margin-left: .2rem
+      font-weight: 700
+    
+    &__status
+      margin-left: 5px
+      @include mobile
+        margin-top: 1rem
+      a
+        border: 1px solid $gray-162
+        padding: 5px
+        transition: all .3s
+        color: $gray-162
+      
+      a:hover
+        border-color: $gray-47
+        color: $gray-47
+  
+  .right
+    &__price, &__menu, &__order
+      margin-right: .5rem
+      @include mobile
+        text-align: center
+    
+    &__price a
+      background: $red-255
+      color: $white
+      padding: 7px 15px
+      border-radius: 5px
+      transition: all .3s
+      @include mobile
+        padding: 5px
+        border-radius: 0
+      
+    &__price a:hover
+      background: $red-230
+
+    &__menu a, &__order a, &__qna a
+      padding: 7px 15px
+      border-radius: 5px
+      transition: all .3s
+      @include mobile
+        padding: 5px
+        border-radius: 0
+
+    &__menu a:hover, &__order a:hover, &__qna a:hover
+      background: $red-255
+      color: $white
+    
+    // ADMIN
+    &__front, &__config-price, &__config-menu, &__config-contacts
+      margin-right: .2rem
+      @include mobile
+        text-align: center
+
+    &__front a, &__config-price a, &__config-menu a, &__config-contacts a, &__config-qna a
+      padding: 5px
+      transition: all .3s
+
+    &__config-price a:hover, &__config-menu a:hover, &__config-contacts a:hover, &__config-qna a:hover
+      background: $green-86
+      color: $white
+
+    &__front a:hover
+      background: $red-255
+      color: $white
+
+
+// index page
+// banner
+.banner
+  position: relative
+  color: $white
+  background: url('../img/2.png') center/cover no-repeat
+  height: 580px
+
+  &__title
+    position: relative
+    font-size: 3.5rem
+    font-weight: bold
+    color: $white
+    display: inline-block
+    z-index: 2
+    top: 50%
+    left: 50%
+    transform: translate(-50%, -50%)
+
+.banner::after
+  content: ''
+  position: absolute
+  background: rgba(0, 0, 0, .2)
+  top: 0
+  left: 0
+  right: 0
+  bottom: 0
+
+// menu page
+// banner
+.menu__banner
+  background: url('../img/f-title.png') center/cover no-repeat
+  height: 300px
+
+
+// index page : main
+.restaurant
+  &__intro
+    text-align: center
+    margin: 1.5rem auto
+  
+  .intro
+    &__title
+      @extend %leftBar
+    
+    &__content
+      margin: 1rem auto
+
+    &__content p
+      margin: 1rem 0
+    
+    &__btns
+      margin-top: 5rem
+      @include mobile
+        +flexSet($flexD: column)
+
+      .btns
+        &__menu, &__order
+          font-size: 1.5rem
+          padding: 2rem 2.5rem
+          border-radius: 5px
+          color: $green-97
+          transition: all .3s
+        
+        &__menu
+          background: $green-232
+          margin-right: 2%
+          @include mobile
+            margin: 0
+            margin-bottom: 2%
+
+        &__menu:hover
+          box-shadow: 0 2px 1px $green-187, 0 4px 0 $green-150
+        
+        &__order:hover
+          box-shadow: 0 2px 1px $yellow-204, 0 4px 0 $yellow-138
+
+        &__order
+          background: $yellow-249
+  
+  &__menu
+    text-align: center
+    margin: 5rem auto
+    
+    .menu
+      &__title
+        @extend %leftBar
+      
+      &__looks
+        +flexSet()
+        @include mobile
+          flex-direction: column
+          align-items: center
+        
+        .looks__pic
+          width: 25%
+          @include mobile
+            width: 90%
+            margin: 1.2rem auto
+
+          img
+            width: 100% 
+  
+  &__assess
+    text-align: center
+    
+    .assess
+      &__title
+        @extend %leftBar
+      &__cards
+        +flexSet()
+        @include mobile
+          flex-direction: column
+          align-items: center
+        
+
+        .cards__card
+          border: 1px solid $blue-236
+          border-radius: 5px
+          box-shadow: -1.4px -1px 6px 0 $blue-239
+          position: relative
+          margin: 4.5rem 0
+          width: 32%
+          @include mobile
+            width: 100%
+
+        .cards__card:nth-child(2)
+          margin: auto 2rem
+
+        .card
+          &__user-avatar
+            transform: translate(0, -45%)
+          &__username
+            transform: translate(0, -300%)
+            margin-bottom: -2rem
+          &__comment
+            margin-bottom: 1.5rem
+
+  &__location
+    text-align: center
+    margin-bottom: 2rem
+
+    .location
+      &__title
+        @extend %leftBar
+        margin-bottom: 2rem
+
+
+//menu page : main
+.menu
+  &__popular
+    text-align: center
+    margin: 8rem auto
+  
+  &__order-intro
+    +flexSet($justC: space-between, $alignI: center)
+    margin: 6rem auto
+    @include pad
+      flex-direction: column-reverse
+      text-align: center
+
+    .order-intro
+      &__left
+        @include pad
+          display: none
+
+      &__right
+        margin-left: 2rem
+        @include pad
+          margin: 0
+
+        .right
+          &__title
+            color: $green-152
+            font-weight: 800
+            font-size: 1.5rem
+            line-height: 2rem
+            margin-bottom: 2rem
+          
+          &__content p
+            margin: 1.5rem auto
+            line-height: 1.3rem
+
+  &__cuisine
+    text-align: center
+
+    .cuisine
+      &__title
+        font-size: 1.4rem
+        margin: 3rem auto
+      &__cards
+        +flexSet()
+        flex-flow: row wrap
+        margin: 0 auto
+        width: 60%
+        @include pad
+          flex-direction: column
+        @include mobile
+          width: 100%
+
+        .cards__card
+          width: 30%
+          +flexSet($flexD: column, $alignI: center)
+          @include pad
+            width: 100%
+        
+        .cards__card:not(:nth-child(3n))
+          margin-right: calc(10% / 2)
+          @include pad
+            margin: 0
+        
+        .card
+          &__cuisine-display, &__cuisine-info
+            margin-bottom: 1.2rem
+          
+          &__cuisine-info, &__add-cart-btn
+            color: $green-99
+
+          &__cuisine-info
+            +flexSet()
+
+            .info__name
+              border-right: 1px solid $green-99
+              padding-right: 5px
+              margin-right: 5px
+
+          &__add-cart-btn
+            width: 100%
+            margin-bottom: 1.5rem
+            background: $green-255
+            border: 1px solid $green-99
+            padding: 4% 0
+            cursor: pointer
+            transition: all .3s
+          
+          &__add-cart-btn:hover
+            background: $green-222
+            color: $green-255
+
+          &__cuisine-display
+            width: 100%
+
+            img
+              width: 100%
+
+  &__location
+    text-align: center
+    margin: 4rem auto
+
+    .location
+      &__title
+        font-size: 1.4rem
+        margin-bottom: 3rem
+
+
+.popular
+  &__title
+    @extend %leftBar
+    font-size: 2rem
+    margin: 2rem auto 2rem
+    text-align: center
+  
+  &__looks
+    +flexSet($justC: center, $alignI:center)
+    @include pad
+      flex-direction: column 
+
+    .looks
+      &__pic
+        width: 30%
+        @include pad
+          width: 70%
+        @include mobile
+          width: 100%
+        img
+          width: 100%
+          opacity: .5
+      
+      &__outstock
+        color: $white
+        background: $gray-47
+        width: 60px
+        padding: 20px 0
+        border-radius: 50%
+        transform: translate(315%, 285%)
+        @include pad
+          transform: translate(390%, 348%)
+        @include mobile
+          transform: translate(372%, 340%)
+
+
+// prize page : main
+.prize
+  background: url('../img/games-bn.png') center/cover no-repeat
+  height: 768px
+
+  &__event
+    width: 40%
+    background: $white
+    margin: 4rem auto
+    border-radius: 10px
+    box-sizing: border-box
+    padding: 2%
+    @include pad
+      width: 60%
+    @include mobile
+      width: 90%
+
+    .event
+      &__title
+        text-align: center
+        font-size: 1.6rem
+        margin-bottom: 2rem
+        color: $green-193
+      
+      &__period, &__intro, &__prize
+        +flexSet()
+        border-bottom: 1px solid $gray-205
+        padding-bottom: 1.5rem
+        margin-bottom: 1.5rem
+
+  .event__get-prize-btn
+    text-align: center
+    background: $red-230
+    color: $white
+    display: inline-block
+    padding: 15px 0
+    border-radius: 5px
+    margin: 2rem 5% 0
+    width: 90%
+    font-size: 1.3rem
+    transition: all .3s
+
+  .event__get-prize-btn:hover
+    background: $red-255
+    box-shadow: 0 2px 1px $red-230, 0 4px 0 $red-255
+
+  &__result
+    width: 40%
+    background: rgba(255, 255, 255, .5)
+    margin: 10rem auto
+    border-radius: 10px
+    box-sizing: border-box
+    padding: 2%
+    @include pad
+      width: 60%
+    @include mobile
+      width: 90%
+
+    .result
+      &__title
+        text-align: center
+        font-size: 2rem
+        margin: 2rem auto
+        padding-bottom: 2rem
+        font-weight: 800
+        border-bottom: 1px solid rgba($green-222, .3)
+      
+      &__content
+        font-size: 1.6rem
+        text-align: center
+
+
+.period__subtitle, .intro__subtitle, .prize__subtitle
+  min-width: 20%
+  font-weight: 800
+
+.intro__content
+  line-height: 1.5rem
+  margin-top: -4px
+
+.prize__list
+  li::before
+    content: '❤ '
+    color: $red-255
+  li:not(:last-child)
+    margin-bottom: .5rem
+  li:last-child
+    line-height: 1.5rem
+
+
+// question page : main
+.question
+  margin: 4rem auto 2rem
+  min-height: 60vh
+
+  &__title
+    @extend %leftBar
+    font-weight: 800
+    text-align: center
+    display: block
+    width: fit-content
+    margin: 0 auto 4rem
+  
+  &__list
+    width: 100%
+    margin: 0 auto
+
+    .list
+      &__qna
+        +flexSet()
+        border-bottom: 1px solid $green-226
+        padding-bottom: 1.5rem
+        cursor: pointer
+
+        .qna
+          &__number
+            margin-right: .6rem
+            color: $green-178
+            
+      &__qna:not(:last-child)
+        margin-bottom: 1.5rem
+
+.content
+  &__question
+    margin-bottom: 1.3rem
+  
+  &__answer
+    line-height: 1.5rem
+
+    .answer__status-btns
+      margin-top: 2%
+      text-align: end
+  
+  &__edit-btn, &__delete-btn
+    border: 1px solid $green-178
+    color: $green-178
+    padding: 7px 5px
+  
+  &__edit-btn
+    margin: 0 2%
+
+
+// ADMIN :main
+.admin
+  min-height: 90vh
+
+  // show page
+  &__object-new
+    +flexSet($justC:space-between, $alignI:center)
+    margin: 2rem 2rem 0
+    padding-bottom: 1.5rem
+    border-bottom: 1px solid $green-239
+    font-size: 1.4rem
+
+    a
+      border: 1px solid $red-255
+      padding: 5px
+      color: $red-255
+      transition: all .3s
+
+    a:hover
+      background: $red-255
+      color: $white
+      
+  &__objects
+    +flexSet($justC:space-between)
+    flex-flow: row wrap
+    @include mobile
+      flex-direction: column
+
+    .object__list
+      margin: 2rem auto
+      width: 80%
+      border-bottom: 4px double $green-178
+      padding-bottom: 1rem
+      @include mobile
+        width: 100%
+
+    .object__info
+      border: 1px solid $green-99
+      margin: 2rem 0
+      box-sizing: border-box
+      padding: 1rem
+      width: 30%
+      @include pad
+        margin: 2rem 0
+        width: 45%
+        @include mobile
+          width: 100%
+      
+
+    .info
+      &__mark
+        font-size: 1.5rem
+      &__img
+        width: 100%
+
+        img
+          width: 100%
+
+      &__section
+        border-top: 1px solid $green-239
+        padding-top: .5rem
+        margin: 1rem
+
+        .section__title
+          font-weight: 800
+          color: $green-178
+          margin-bottom: .5rem
+      
+      &__status
+        margin-top: 1rem
+        +flexSet($justC: flex-end)
+        a
+          padding: 3px 5px
+          border: 1px solid $green-193
+          color: $green-193
+          transition: all .3s
+        
+        a:first-child
+          margin-right: 5px
+
+        a:hover
+          background: $green-193
+          color: $white
+
+  // .object__info:not(:nth-child(3n))
+  //   margin-right: calc(10% / 2)
+  //   @include mobile
+  //     margin-right: 0
+  
+
+  // edit page
+  &__object-edit
+    width: 70%
+    margin: 2rem auto
+    background: $green-239
+    padding: 1.3rem
+    @include mobile
+      width: 90%
+
+    .edit
+      &__title
+        font-size: 1.5rem
+        text-align: center
+        margin-bottom: 2rem
+      &__area
+        +flexSet($flexD: column)
+        margin: 0 3rem
+
+        input
+          height: 1.8rem
+          font-size: 1.4rem
+        
+        textarea
+          font-size: 1.2rem
+        
+        input[type="submit"]
+          width: 150px
+          margin: 1.5rem auto
+          line-height: 1.2rem
+          border: 1px solid $green-187
+          background: transparent
+          transition: all .3s
+
+        input[type="submit"]:hover
+          background: $green-187
+          color: $white
+
+        *
+          margin-bottom: 1.2rem
+
+  .status-group
+    +flexSet($alignI:center)
+  
+  .status-group:nth-of-type(2)
+    margin-top: -2rem
+
+    
+
+// contacts
+.contacts
+  +flexSet($justC:space-between)
+  background: $green-239
+  padding: 3rem 0
+  @include mobile
+    flex-direction: column-reverse
+    align-items: center
+
+  &__left div:not(:first-child,:last-child)
+    margin: 1.1rem 0
+  
+  &__right
+    text-align: end
+    @include mobile
+      text-align: center
+      margin-bottom: 2rem
+
+    .right
+      &__logo
+        font-size: 1.8rem
+        color: $green-152
+      
+      &__media
+        margin: .7rem 0
+        a
+          cursor: pointer
+          transition: all .3s
+          
+        a:hover
+          color: $green-152
+          text-decoration: underline
+
+
+// footer
+.copyrights
+  background: $green-86
+  color: $white
+  text-align: center
+  padding: 1.1rem 0
+
