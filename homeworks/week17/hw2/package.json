@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "npm run clearout && npm run db:migrate && npm run db:seed && node index.js",
     "db:migrate": "npx sequelize db:migrate",
-    "db:seed" : "npx sequelize db:seed:all",
+    "db:seed": "npx sequelize db:seed:all",
     "db:unmigrate": "npx sequelize db:migrate:undo:all",
     "db:clearseed": "npx sequelize db:seed:undo:all",
     "clearout": "npm run db:unmigrate && npm run db:clearseed"
@@ -17,6 +17,7 @@
   "dependencies": {
     "bcrypt": "^5.0.1",
     "connect-flash": "^0.1.1",
+    "dotenv": "^10.0.0",
     "ejs": "^3.1.6",
     "express": "^4.17.1",
     "express-session": "^1.17.2",
