@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/blog_react/static/css/main.6dea0f05.chunk.css",
+    "main.js": "/blog_react/static/js/main.6891984e.chunk.js",
+    "main.js.map": "/blog_react/static/js/main.6891984e.chunk.js.map",
+    "runtime-main.js": "/blog_react/static/js/runtime-main.b707b890.js",
+    "runtime-main.js.map": "/blog_react/static/js/runtime-main.b707b890.js.map",
+    "static/js/2.26c3c144.chunk.js": "/blog_react/static/js/2.26c3c144.chunk.js",
+    "static/js/2.26c3c144.chunk.js.map": "/blog_react/static/js/2.26c3c144.chunk.js.map",
+    "static/js/3.5b070552.chunk.js": "/blog_react/static/js/3.5b070552.chunk.js",
+    "static/js/3.5b070552.chunk.js.map": "/blog_react/static/js/3.5b070552.chunk.js.map",
+    "index.html": "/blog_react/index.html",
+    "static/css/main.6dea0f05.chunk.css.map": "/blog_react/static/css/main.6dea0f05.chunk.css.map",
+    "static/js/2.26c3c144.chunk.js.LICENSE.txt": "/blog_react/static/js/2.26c3c144.chunk.js.LICENSE.txt",
+    "static/media/ellipsis.962ca38c.svg": "/blog_react/static/media/ellipsis.962ca38c.svg",
+    "static/media/ripple.42ec6101.svg": "/blog_react/static/media/ripple.42ec6101.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.b707b890.js",
+    "static/js/2.26c3c144.chunk.js",
+    "static/css/main.6dea0f05.chunk.css",
+    "static/js/main.6891984e.chunk.js"
+  ]
+}
