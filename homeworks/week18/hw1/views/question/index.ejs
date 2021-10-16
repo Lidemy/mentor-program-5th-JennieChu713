@@ -1,0 +1,22 @@
+<%- include('../templates/header') %>
+<%- include('../templates/navbar_front') %>
+  <main class="question">
+    <%- include('../templates/alert') %>
+    <div class="question__title">FAQ - 常見問題</div>
+    <section class="question__list">
+      <!-- qa render -->
+      <%questions.forEach((question) => { %>
+      <div class="list__qna">
+        <div class="qna__number">Q<%= question.seqOrder %></div>
+        <div class="qna__content">
+          <div class="content__question"><%= question.question %></div>
+          <div class="content__answer">
+            <%= question.answer %>
+          </div>
+        </div>
+      </div>
+      <% }) %>
+    </section>
+  </main>
+  <%- include('../templates/contacts') %>
+  <%- include('../templates/footer') %>

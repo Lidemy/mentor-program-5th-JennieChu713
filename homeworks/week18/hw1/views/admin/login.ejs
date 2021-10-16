@@ -1,0 +1,16 @@
+<%- include('../templates/header') %>
+<%- include('../templates/navbar_front') %>
+  <main class="admin container">
+    <%- include('../templates/alert') %>
+    <section class="admin__object-edit">
+      <h2 class="edit__title">Login</h2>
+      <form action="/login" method="POST" class="edit__area">
+        <label for="username">Username</label>
+        <input id="username" name="username" type="text" placeholder="username">
+        <label for="password">Password</label>
+        <input id="password" name="password" type="password" placeholder="password">
+        <input type="submit" value="Login">
+      </form>
+    </section>
+  </main>
+<%- include('../templates/footer') %>

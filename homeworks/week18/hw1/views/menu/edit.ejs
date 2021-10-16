@@ -1,0 +1,19 @@
+<%- include('../templates/header') %>
+<%- include('../templates/navbar_back') %>
+  <main class="admin container">
+    <%- include('../templates/alert') %>
+    <section class="admin__object-edit">
+      <h2 class="edit__title">菜單設定</h2>
+      <form action="/backstage/menu/<%= menu.id %>/edit" method="POST" class="edit__area">
+        <label for="image">圖片網址： </label>
+        <input id="image" name="image" type="text" value="<%= menu.image %>" placeholder="圖片網址">
+        <label for="name">菜色名稱：</label>
+        <input id="name" name="name" type="text" value="<%= menu.name %>" placeholder="獎項名稱">
+        <label for="price">價格：</label>
+        <input id="price" name="price" type="number" min="0", step="1" value="<%= menu.price %>" placeholder="最低0元">
+        <input type="hidden" name="id" value="<%= menu.id %>">
+        <input type="submit" value="更改">
+      </form>
+    </section>
+  </main>
+<%- include('../templates/footer') %>

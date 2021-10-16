@@ -1,0 +1,20 @@
+<body class="debug">
+  <nav class="navbar">
+    <div class="navbar__left container">
+      <div class="left__logo"><a href="/">Just A Bite!</a></div>
+      <div class="left__status">
+        <% if (!username) { %>
+        <a href="/login" class="login-btn">登入</a>
+        <% } else { %>
+          <a href="/backstage" class="login-btn">後台</a>
+          <a href="/logout" class="logout-btn">登出</a>
+        <% } %>
+      </div>
+    </div>
+    <div class="navbar__right container">
+      <div class="right__price"><a href="/prize">抽個大獎</a></div>
+      <div class="right__menu"><a href="/menu">我要點餐</a></div>
+      <div class="right__order"><a href="#">查詢訂單</a></div>
+      <div class="right__qna"><a href="/question">常見問題</a></div>
+    </div>
+  </nav>

@@ -1,2 +1,6 @@
 examples/
 /homeworks/week13/hw2
+migrations/
+models/
+seeders/
+

@@ -1,0 +1,22 @@
+<%- include('../templates/header') %>
+<%- include('../templates/navbar_back') %>
+  <main class="admin container">
+    <%- include('../templates/alert') %>
+    <section class="admin__object-edit">
+      <h2 class="edit__title">新增獎項</h2>
+      <form action="/backstage/prize/new" method="POST" class="edit__area">
+        <label for="image">圖片網址： </label>
+        <input id="image" name="image" type="text" placeholder="圖片網址">
+        <label for="name">獎項名稱：</label>
+        <input id="name" name="name" type="text" placeholder="獎項名稱">
+        <label for="rate">中獎機率：</label>
+        <input id="rate" name="rate" type="number" min="1", max="100" step="1" placeholder="請設定於 1~100% 之間">
+        <label for="amount">數量： </label>
+        <input id="amount" name="amount" type="text" placeholder="總數量">
+        <label for="description">說明：</label>
+        <textarea id="description" name="description" rows="10" type="text" placeholder= "說明"></textarea>
+        <input type="submit" value="新增">
+      </form>
+    </section>
+  </main>
+  <%- include('../templates/footer') %>
